@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Apps</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background-color: #0C0818;
-      color: #F0EAFF;
-      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #08080E;
+      color: #EEEEF8;
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif;
       min-height: 100vh;
-      padding: 72px 24px 96px;
+      padding: 80px 24px 100px;
     }
 
     header {
@@ -27,153 +23,169 @@
     }
 
     .site-title {
-      font-size: 2.4rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #DDD6FE 0%, #A78BFA 50%, #7C3AED 100%);
+      font-family: 'Inter', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      background: linear-gradient(90deg, #FF6348, #FFBE21, #2ED573, #00B4D8, #FF6B9D);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: shimmer 6s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
 
     .site-sub {
       margin-top: 10px;
-      color: #7C6FA0;
-      font-size: 0.88rem;
-      font-weight: 300;
-      letter-spacing: 0.05em;
+      color: #333345;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
     }
 
     .grid {
-      max-width: 1140px;
+      max-width: 1080px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
     }
 
     .card {
       display: block;
       text-decoration: none;
       color: inherit;
-      background: #160E2A;
-      border: 1px solid rgba(124, 58, 237, 0.12);
-      border-radius: 14px;
+      background: #0E0E18;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(167, 139, 250, 0.4);
-      box-shadow: 0 24px 48px rgba(124, 58, 237, 0.18);
+      transform: translateY(-6px);
+      border-color: var(--c1);
+      box-shadow: 0 28px 64px rgba(var(--rgb), 0.22);
+    }
+
+    .card-stripe {
+      height: 3px;
+      background: linear-gradient(90deg, var(--c1), var(--c2));
     }
 
     .browser-bar {
-      background: #0C0818;
-      padding: 9px 12px;
+      background: #08080E;
+      padding: 8px 12px;
       display: flex;
       align-items: center;
-      gap: 0;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    .dots {
-      display: flex;
-      gap: 5px;
-      flex-shrink: 0;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
-
-    .d-red    { background: #FF5F57; }
-    .d-yellow { background: #FEBC2E; }
-    .d-green  { background: #28C840; }
+    .dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-r { background: #FF5F57; }
+    .dot-y { background: #FEBC2E; }
+    .dot-g { background: #28C840; }
 
     .url-bar {
       flex: 1;
       margin-left: 10px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 5px;
-      padding: 3px 10px;
-      font-size: 0.68rem;
-      color: #6B5C8A;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      padding: 3px 9px;
+      font-size: 0.64rem;
+      color: #333348;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-family: 'Inter', monospace;
+      letter-spacing: 0.01em;
     }
 
     .preview {
       width: 100%;
-      height: 196px;
+      height: 186px;
       overflow: hidden;
-      background: #0C0818;
+      background: #08080E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .preview img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: top;
       display: block;
-      transition: opacity 0.3s ease;
     }
 
-    .preview img[data-loaded="false"] {
-      opacity: 0;
+    .preview.no-img {
+      background: linear-gradient(135deg, #0E0E18 0%, #08080E 100%);
     }
 
-    .preview-fallback {
-      width: 100%;
-      height: 100%;
+    .preview.no-img::after {
+      content: attr(data-icon);
+      font-size: 3rem;
+      opacity: 0.15;
+    }
+
+    .card-body { padding: 14px 16px 18px; }
+
+    .badges {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #160E2A 0%, #0C0818 100%);
+      gap: 6px;
+      margin-bottom: 9px;
+      flex-wrap: wrap;
     }
 
-    .fallback-icon {
-      font-size: 2.8rem;
-      opacity: 0.18;
+    .badge {
+      font-size: 0.62rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      font-family: 'Inter', sans-serif;
     }
 
-    .card-body {
-      padding: 18px 20px 20px;
-    }
-
-    .card-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #EDE9FE;
-      margin-bottom: 7px;
-    }
-
-    .card-desc {
-      font-size: 0.8rem;
-      color: #7C6FA0;
-      line-height: 1.65;
-      font-weight: 300;
+    .badge-collab {
+      background: rgba(var(--rgb), 0.1);
+      color: var(--c1);
+      border: 1px solid rgba(var(--rgb), 0.28);
     }
 
     .badge-wip {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.67rem;
-      color: #8B5CF6;
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 4px;
-      padding: 2px 8px;
-      letter-spacing: 0.04em;
+      background: rgba(100, 100, 120, 0.1);
+      color: #444458;
+      border: 1px solid rgba(100, 100, 120, 0.18);
     }
 
-    @media (max-width: 720px) {
-      .site-title { font-size: 1.8rem; }
+    .card-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #EEEEF8;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.77rem;
+      color: #444458;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    @media (max-width: 700px) {
+      .site-title { font-size: 2.2rem; }
       .grid { grid-template-columns: 1fr; }
-      body { padding: 52px 16px 72px; }
+      body { padding: 56px 16px 72px; }
     }
   </style>
 </head>
@@ -181,27 +193,24 @@
 
   <header>
     <div class="site-title">My Apps</div>
-    <div class="site-sub">制作中の Web アプリ一覧</div>
+    <div class="site-sub">Web App Portfolio</div>
   </header>
 
   <div class="grid">
 
-    <a class="card" href="https://japan-map-wheat.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://japan-map-wheat.vercel.app/" target="_blank" rel="noopener"
+       style="--c1:#FF6348;--c2:#FF9F43;--rgb:255,99,72">
+      <div class="card-stripe"></div>
       <div class="browser-bar">
         <div class="dots">
-          <div class="dot d-red"></div>
-          <div class="dot d-yellow"></div>
-          <div class="dot d-green"></div>
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         </div>
         <div class="url-bar">japan-map-wheat.vercel.app</div>
       </div>
-      <div class="preview">
-        <img
-          src="https://image.thum.io/get/width/800/crop/450/https://japan-map-wheat.vercel.app/"
-          alt="都道府県クイズ"
-          loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🗾</span></div>'"
-        >
+      <div class="preview" data-icon="🗾">
+        <img src="https://image.thum.io/get/width/800/crop/450/https://japan-map-wheat.vercel.app/"
+             alt="都道府県クイズ" loading="lazy"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
       </div>
       <div class="card-body">
         <div class="card-name">都道府県クイズ</div>
@@ -209,22 +218,19 @@
       </div>
     </a>
 
-    <a class="card" href="https://supply-chain.sankichisakata.workers.dev/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://supply-chain.sankichisakata.workers.dev/" target="_blank" rel="noopener"
+       style="--c1:#00B4D8;--c2:#0096C7;--rgb:0,180,216">
+      <div class="card-stripe"></div>
       <div class="browser-bar">
         <div class="dots">
-          <div class="dot d-red"></div>
-          <div class="dot d-yellow"></div>
-          <div class="dot d-green"></div>
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         </div>
         <div class="url-bar">supply-chain.sankichisakata.workers.dev</div>
       </div>
-      <div class="preview">
-        <img
-          src="https://image.thum.io/get/width/800/crop/450/https://supply-chain.sankichisakata.workers.dev/"
-          alt="生産管理アプリ"
-          loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏭</span></div>'"
-        >
+      <div class="preview" data-icon="🏭">
+        <img src="https://image.thum.io/get/width/800/crop/450/https://supply-chain.sankichisakata.workers.dev/"
+             alt="生産管理アプリ" loading="lazy"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
       </div>
       <div class="card-body">
         <div class="card-name">生産管理アプリ</div>
@@ -232,72 +238,65 @@
       </div>
     </a>
 
-    <a class="card" href="https://stock-insight-taupe.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://stock-insight-taupe.vercel.app/" target="_blank" rel="noopener"
+       style="--c1:#2ED573;--c2:#26DE81;--rgb:46,213,115">
+      <div class="card-stripe"></div>
       <div class="browser-bar">
         <div class="dots">
-          <div class="dot d-red"></div>
-          <div class="dot d-yellow"></div>
-          <div class="dot d-green"></div>
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         </div>
         <div class="url-bar">stock-insight-taupe.vercel.app</div>
       </div>
-      <div class="preview">
-        <img
-          src="https://image.thum.io/get/width/800/crop/450/https://stock-insight-taupe.vercel.app/"
-          alt="株価トピック"
-          loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>📈</span></div>'"
-        >
+      <div class="preview" data-icon="📈">
+        <img src="https://image.thum.io/get/width/800/crop/450/https://stock-insight-taupe.vercel.app/"
+             alt="株価トピック" loading="lazy"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
       </div>
       <div class="card-body">
+        <div class="badges"><span class="badge badge-collab">共同開発</span></div>
         <div class="card-name">株価トピック</div>
         <div class="card-desc">リアルタイムニュースとAIによる推測銘柄であなたの資産を最大化</div>
       </div>
     </a>
 
-    <a class="card" href="https://keiba-prediction-xi.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://keiba-prediction-xi.vercel.app/" target="_blank" rel="noopener"
+       style="--c1:#FFBE21;--c2:#FF9F43;--rgb:255,190,33">
+      <div class="card-stripe"></div>
       <div class="browser-bar">
         <div class="dots">
-          <div class="dot d-red"></div>
-          <div class="dot d-yellow"></div>
-          <div class="dot d-green"></div>
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         </div>
         <div class="url-bar">keiba-prediction-xi.vercel.app</div>
       </div>
-      <div class="preview">
-        <img
-          src="https://image.thum.io/get/width/800/crop/450/https://keiba-prediction-xi.vercel.app/"
-          alt="AI競馬予想"
-          loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏇</span></div>'"
-        >
+      <div class="preview" data-icon="🏇">
+        <img src="https://image.thum.io/get/width/800/crop/450/https://keiba-prediction-xi.vercel.app/"
+             alt="AI競馬予想" loading="lazy"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
       </div>
       <div class="card-body">
+        <div class="badges"><span class="badge badge-collab">共同開発</span></div>
         <div class="card-name">AI競馬予想</div>
         <div class="card-desc">過去データから次のレースを読み解く！</div>
       </div>
     </a>
 
-    <a class="card" href="https://goyou-lp.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://goyou-lp.vercel.app/" target="_blank" rel="noopener"
+       style="--c1:#FF6B9D;--c2:#C44DFF;--rgb:255,107,157">
+      <div class="card-stripe"></div>
       <div class="browser-bar">
         <div class="dots">
-          <div class="dot d-red"></div>
-          <div class="dot d-yellow"></div>
-          <div class="dot d-green"></div>
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         </div>
         <div class="url-bar">goyou-lp.vercel.app</div>
       </div>
-      <div class="preview">
-        <img
-          src="https://image.thum.io/get/width/800/crop/450/https://goyou-lp.vercel.app/"
-          alt="23区不動産売買LP"
-          loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏢</span></div>'"
-        >
+      <div class="preview" data-icon="🏢">
+        <img src="https://image.thum.io/get/width/800/crop/450/https://goyou-lp.vercel.app/"
+             alt="23区不動産売買LP" loading="lazy"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
       </div>
       <div class="card-body">
+        <div class="badges"><span class="badge badge-wip">説明準備中</span></div>
         <div class="card-name">23区不動産売買LP</div>
-        <div class="card-desc"><span class="badge-wip">説明準備中</span></div>
       </div>
     </a>
 
