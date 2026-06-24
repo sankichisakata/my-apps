@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0C0818;
+      color: #F0EAFF;
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      padding: 72px 24px 96px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .site-title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #DDD6FE 0%, #A78BFA 50%, #7C3AED 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .site-sub {
+      margin-top: 10px;
+      color: #7C6FA0;
+      font-size: 0.88rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #160E2A;
+      border: 1px solid rgba(124, 58, 237, 0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(167, 139, 250, 0.4);
+      box-shadow: 0 24px 48px rgba(124, 58, 237, 0.18);
+    }
+
+    .browser-bar {
+      background: #0C0818;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    .dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .d-red    { background: #FF5F57; }
+    .d-yellow { background: #FEBC2E; }
+    .d-green  { background: #28C840; }
+
+    .url-bar {
+      flex: 1;
+      margin-left: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 0.68rem;
+      color: #6B5C8A;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview {
+      width: 100%;
+      height: 196px;
+      overflow: hidden;
+      background: #0C0818;
+    }
+
+    .preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .preview img[data-loaded="false"] {
+      opacity: 0;
+    }
+
+    .preview-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #160E2A 0%, #0C0818 100%);
+    }
+
+    .fallback-icon {
+      font-size: 2.8rem;
+      opacity: 0.18;
+    }
+
+    .card-body {
+      padding: 18px 20px 20px;
+    }
+
+    .card-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #EDE9FE;
+      margin-bottom: 7px;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: #7C6FA0;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .badge-wip {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.67rem;
+      color: #8B5CF6;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 4px;
+      padding: 2px 8px;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 720px) {
+      .site-title { font-size: 1.8rem; }
+      .grid { grid-template-columns: 1fr; }
+      body { padding: 52px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="site-title">My Apps</div>
+    <div class="site-sub">制作中の Web アプリ一覧</div>
+  </header>
+
+  <div class="grid">
+
+    <a class="card" href="https://japan-map-wheat.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="browser-bar">
+        <div class="dots">
+          <div class="dot d-red"></div>
+          <div class="dot d-yellow"></div>
+          <div class="dot d-green"></div>
+        </div>
+        <div class="url-bar">japan-map-wheat.vercel.app</div>
+      </div>
+      <div class="preview">
+        <img
+          src="https://image.thum.io/get/width/800/crop/450/https://japan-map-wheat.vercel.app/"
+          alt="都道府県クイズ"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🗾</span></div>'"
+        >
+      </div>
+      <div class="card-body">
+        <div class="card-name">都道府県クイズ</div>
+        <div class="card-desc">47都道府県の特色をまとめ、クイズ形式で全国一位を競う！</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://supply-chain.sankichisakata.workers.dev/" target="_blank" rel="noopener noreferrer">
+      <div class="browser-bar">
+        <div class="dots">
+          <div class="dot d-red"></div>
+          <div class="dot d-yellow"></div>
+          <div class="dot d-green"></div>
+        </div>
+        <div class="url-bar">supply-chain.sankichisakata.workers.dev</div>
+      </div>
+      <div class="preview">
+        <img
+          src="https://image.thum.io/get/width/800/crop/450/https://supply-chain.sankichisakata.workers.dev/"
+          alt="生産管理アプリ"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏭</span></div>'"
+        >
+      </div>
+      <div class="card-body">
+        <div class="card-name">生産管理アプリ</div>
+        <div class="card-desc">生産管理の進捗やアラートを確認し、各工程の情報を抽出できるアプリ</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://stock-insight-taupe.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="browser-bar">
+        <div class="dots">
+          <div class="dot d-red"></div>
+          <div class="dot d-yellow"></div>
+          <div class="dot d-green"></div>
+        </div>
+        <div class="url-bar">stock-insight-taupe.vercel.app</div>
+      </div>
+      <div class="preview">
+        <img
+          src="https://image.thum.io/get/width/800/crop/450/https://stock-insight-taupe.vercel.app/"
+          alt="株価トピック"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>📈</span></div>'"
+        >
+      </div>
+      <div class="card-body">
+        <div class="card-name">株価トピック</div>
+        <div class="card-desc">リアルタイムニュースとAIによる推測銘柄であなたの資産を最大化</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://keiba-prediction-xi.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="browser-bar">
+        <div class="dots">
+          <div class="dot d-red"></div>
+          <div class="dot d-yellow"></div>
+          <div class="dot d-green"></div>
+        </div>
+        <div class="url-bar">keiba-prediction-xi.vercel.app</div>
+      </div>
+      <div class="preview">
+        <img
+          src="https://image.thum.io/get/width/800/crop/450/https://keiba-prediction-xi.vercel.app/"
+          alt="AI競馬予想"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏇</span></div>'"
+        >
+      </div>
+      <div class="card-body">
+        <div class="card-name">AI競馬予想</div>
+        <div class="card-desc">過去データから次のレースを読み解く！</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://goyou-lp.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="browser-bar">
+        <div class="dots">
+          <div class="dot d-red"></div>
+          <div class="dot d-yellow"></div>
+          <div class="dot d-green"></div>
+        </div>
+        <div class="url-bar">goyou-lp.vercel.app</div>
+      </div>
+      <div class="preview">
+        <img
+          src="https://image.thum.io/get/width/800/crop/450/https://goyou-lp.vercel.app/"
+          alt="23区不動産売買LP"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'preview-fallback\'><span class=\'fallback-icon\'>🏢</span></div>'"
+        >
+      </div>
+      <div class="card-body">
+        <div class="card-name">23区不動産売買LP</div>
+        <div class="card-desc"><span class="badge-wip">説明準備中</span></div>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>
