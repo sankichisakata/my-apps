@@ -19,7 +19,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 72px;
+      margin-bottom: 80px;
     }
 
     .site-title {
@@ -50,14 +50,51 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .grid {
+    /* カテゴリ */
+    .categories {
       max-width: 1080px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
     }
 
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .category-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #252535;
+      text-transform: uppercase;
+    }
+
+    .category-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #EEEEF8;
+      letter-spacing: -0.01em;
+    }
+
+    .category-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    /* カード */
     .card {
       display: block;
       text-decoration: none;
@@ -106,7 +143,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-family: 'Inter', monospace;
-      letter-spacing: 0.01em;
     }
 
     .preview {
@@ -137,12 +173,12 @@
       opacity: 0.15;
     }
 
-    .card-body { padding: 14px 16px 18px; }
+    .card-body { padding: 13px 15px 17px; }
 
     .badges {
       display: flex;
       gap: 6px;
-      margin-bottom: 9px;
+      margin-bottom: 8px;
       flex-wrap: wrap;
     }
 
@@ -196,149 +232,205 @@
     <div class="site-sub">Web App Portfolio</div>
   </header>
 
-  <div class="grid">
+  <div class="categories">
 
-    <a class="card" href="https://japan-map-wheat.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#FF6348;--c2:#FF9F43;--rgb:255,99,72">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">japan-map-wheat.vercel.app</div>
+    <!-- ========== GAME ========== -->
+    <section>
+      <div class="category-header">
+        <span class="category-en">Game</span>
+        <span class="category-name">ゲーム</span>
+        <div class="category-line"></div>
       </div>
-      <div class="preview" data-icon="🗾">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://japan-map-wheat.vercel.app/"
-             alt="都道府県クイズ" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="card-name">都道府県クイズ</div>
-        <div class="card-desc">47都道府県の特色をまとめ、クイズ形式で全国一位を競う！</div>
-      </div>
-    </a>
+      <div class="grid">
 
-    <a class="card" href="https://supply-chain.sankichisakata.workers.dev/" target="_blank" rel="noopener"
-       style="--c1:#00B4D8;--c2:#0096C7;--rgb:0,180,216">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">supply-chain.sankichisakata.workers.dev</div>
-      </div>
-      <div class="preview" data-icon="🏭">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://supply-chain.sankichisakata.workers.dev/"
-             alt="生産管理アプリ" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="card-name">生産管理アプリ</div>
-        <div class="card-desc">生産管理の進捗やアラートを確認し、各工程の情報を抽出できるアプリ</div>
-      </div>
-    </a>
+        <a class="card" href="https://company-game-seven.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#4ECDC4;--c2:#44A08D;--rgb:78,205,196">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">company-game-seven.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="🏚️">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://company-game-seven.vercel.app/"
+                 alt="廃墟再生株式会社" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="card-name">廃墟再生株式会社</div>
+            <div class="card-desc">廃墟を再生し、社員を雇い、東証プライムを目指す放置系経営ゲーム</div>
+          </div>
+        </a>
 
-    <a class="card" href="https://stock-insight-taupe.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#2ED573;--c2:#26DE81;--rgb:46,213,115">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">stock-insight-taupe.vercel.app</div>
       </div>
-      <div class="preview" data-icon="📈">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://stock-insight-taupe.vercel.app/"
-             alt="株価トピック" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="badges"><span class="badge badge-collab">共同開発</span></div>
-        <div class="card-name">株価トピック</div>
-        <div class="card-desc">リアルタイムニュースとAIによる推測銘柄であなたの資産を最大化</div>
-      </div>
-    </a>
+    </section>
 
-    <a class="card" href="https://keiba-prediction-xi.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#FFBE21;--c2:#FF9F43;--rgb:255,190,33">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">keiba-prediction-xi.vercel.app</div>
+    <!-- ========== BUSINESS ========== -->
+    <section>
+      <div class="category-header">
+        <span class="category-en">Business</span>
+        <span class="category-name">ビジネス</span>
+        <div class="category-line"></div>
       </div>
-      <div class="preview" data-icon="🏇">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://keiba-prediction-xi.vercel.app/"
-             alt="AI競馬予想" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="badges"><span class="badge badge-collab">共同開発</span></div>
-        <div class="card-name">AI競馬予想</div>
-        <div class="card-desc">過去データから次のレースを読み解く！</div>
-      </div>
-    </a>
+      <div class="grid">
 
-    <a class="card" href="https://goyou-lp.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#FF6B9D;--c2:#C44DFF;--rgb:255,107,157">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">goyou-lp.vercel.app</div>
-      </div>
-      <div class="preview" data-icon="🏢">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://goyou-lp.vercel.app/"
-             alt="23区不動産売買LP" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="badges"><span class="badge badge-wip">説明準備中</span></div>
-        <div class="card-name">23区不動産売買LP</div>
-      </div>
-    </a>
+        <a class="card" href="https://supply-chain.sankichisakata.workers.dev/" target="_blank" rel="noopener"
+           style="--c1:#00B4D8;--c2:#0096C7;--rgb:0,180,216">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">supply-chain.sankichisakata.workers.dev</div>
+          </div>
+          <div class="preview" data-icon="🏭">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://supply-chain.sankichisakata.workers.dev/"
+                 alt="生産管理アプリ" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="card-name">生産管理アプリ</div>
+            <div class="card-desc">生産管理の進捗やアラートを確認し、各工程の情報を抽出できるアプリ</div>
+          </div>
+        </a>
 
-    <a class="card" href="https://realestate-app-liard-phi.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#818CF8;--c2:#6366F1;--rgb:129,140,248">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">realestate-app-liard-phi.vercel.app</div>
-      </div>
-      <div class="preview" data-icon="🏠">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://realestate-app-liard-phi.vercel.app/"
-             alt="不動産価値ファインダー" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
-      </div>
-      <div class="card-body">
-        <div class="card-name">不動産価値ファインダー</div>
-        <div class="card-desc">実際の成約事例から、あなたの物件価値を1分で算出</div>
-      </div>
-    </a>
+        <a class="card" href="https://variant-c-xi.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#E040FB;--c2:#AA00FF;--rgb:224,64,251">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">variant-c-xi.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="👗">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://variant-c-xi.vercel.app/"
+                 alt="株式会社マリナ" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="card-name">株式会社マリナ</div>
+            <div class="card-desc">1972年創業のアパレルOEMメーカー。小ロット50枚から、4ヶ国の生産ネットワークで対応</div>
+          </div>
+        </a>
 
-    <a class="card" href="https://company-game-seven.vercel.app/" target="_blank" rel="noopener"
-       style="--c1:#4ECDC4;--c2:#44A08D;--rgb:78,205,196">
-      <div class="card-stripe"></div>
-      <div class="browser-bar">
-        <div class="dots">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
-        <div class="url-bar">company-game-seven.vercel.app</div>
+        <a class="card" href="https://goyou-lp.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#FF6B9D;--c2:#C44DFF;--rgb:255,107,157">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">goyou-lp.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="🏢">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://goyou-lp.vercel.app/"
+                 alt="23区不動産売買LP" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="badges"><span class="badge badge-wip">説明準備中</span></div>
+            <div class="card-name">23区不動産売買LP</div>
+          </div>
+        </a>
+
+        <a class="card" href="https://realestate-app-liard-phi.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#818CF8;--c2:#6366F1;--rgb:129,140,248">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">realestate-app-liard-phi.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="🏠">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://realestate-app-liard-phi.vercel.app/"
+                 alt="不動産価値ファインダー" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="card-name">不動産価値ファインダー</div>
+            <div class="card-desc">実際の成約事例から、あなたの物件価値を1分で算出</div>
+          </div>
+        </a>
+
       </div>
-      <div class="preview" data-icon="🏚️">
-        <img src="https://image.thum.io/get/width/800/crop/450/https://company-game-seven.vercel.app/"
-             alt="廃墟再生株式会社" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+    </section>
+
+    <!-- ========== HOBBY ========== -->
+    <section>
+      <div class="category-header">
+        <span class="category-en">Hobby</span>
+        <span class="category-name">趣味</span>
+        <div class="category-line"></div>
       </div>
-      <div class="card-body">
-        <div class="card-name">廃墟再生株式会社</div>
-        <div class="card-desc">廃墟を再生し、社員を雇い、東証プライムを目指す放置系経営ゲーム</div>
+      <div class="grid">
+
+        <a class="card" href="https://japan-map-wheat.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#FF6348;--c2:#FF9F43;--rgb:255,99,72">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">japan-map-wheat.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="🗾">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://japan-map-wheat.vercel.app/"
+                 alt="都道府県クイズ" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="card-name">都道府県クイズ</div>
+            <div class="card-desc">47都道府県の特色をまとめ、クイズ形式で全国一位を競う！</div>
+          </div>
+        </a>
+
+        <a class="card" href="https://stock-insight-taupe.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#2ED573;--c2:#26DE81;--rgb:46,213,115">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">stock-insight-taupe.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="📈">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://stock-insight-taupe.vercel.app/"
+                 alt="株価トピック" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="badges"><span class="badge badge-collab">共同開発</span></div>
+            <div class="card-name">株価トピック</div>
+            <div class="card-desc">リアルタイムニュースとAIによる推測銘柄であなたの資産を最大化</div>
+          </div>
+        </a>
+
+        <a class="card" href="https://keiba-prediction-xi.vercel.app/" target="_blank" rel="noopener"
+           style="--c1:#FFBE21;--c2:#FF9F43;--rgb:255,190,33">
+          <div class="card-stripe"></div>
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            </div>
+            <div class="url-bar">keiba-prediction-xi.vercel.app</div>
+          </div>
+          <div class="preview" data-icon="🏇">
+            <img src="https://image.thum.io/get/width/800/crop/450/https://keiba-prediction-xi.vercel.app/"
+                 alt="AI競馬予想" loading="lazy"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="card-body">
+            <div class="badges"><span class="badge badge-collab">共同開発</span></div>
+            <div class="card-name">AI競馬予想</div>
+            <div class="card-desc">過去データから次のレースを読み解く！</div>
+          </div>
+        </a>
+
       </div>
-    </a>
+    </section>
 
   </div>
 
